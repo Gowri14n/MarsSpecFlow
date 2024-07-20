@@ -32,6 +32,7 @@ namespace SpecFlowProject1.pages
             option_basic.Click();
             IWebElement add_language = webdriver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/div/div[3]/input[1]"));
             add_language.Click();
+
         }
         public void Verifylanguageadded(IWebDriver webdriver)
         {
@@ -57,7 +58,7 @@ namespace SpecFlowProject1.pages
             IWebElement deletebutton = webdriver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[3]/span[2]/i"));
             deletebutton.Click();
             IWebElement verifydelete = webdriver.FindElement(By.XPath("/html/body/div[1]/div"));
-            if(verifydelete.Text== "hindi has been deleted from your languages")
+            if(verifydelete.Text== "Hindi has been deleted from your languages")
             {
                 Console.WriteLine("language has been deleted");
 
@@ -70,13 +71,18 @@ namespace SpecFlowProject1.pages
         {
             IWebElement editbutton = webdriver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[3]/span[1]/i"));
             editbutton.Click();
-            IWebElement enter_language = webdriver.FindElement(By.Name("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td/div/div[1]/input"));
+            IWebElement enter_language = webdriver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td/div/div[1]/input"));
+            enter_language.Clear();
+            Console.WriteLine("i am adding french");
             enter_language.SendKeys("French");
+            Console.WriteLine("i am before proficieny");
             IWebElement proficiency_level = webdriver.FindElement(By.Name("level"));
             proficiency_level.Click();
-            WaitUtilis.WaitToBeVisible(webdriver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/div/div[2]/select", 5);
-            IWebElement option_basic = webdriver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/div/div[2]/select/option[2]"));
+            WaitUtilis.WaitToBeVisible(webdriver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td/div/div[2]/select", 10);
+            IWebElement option_basic = webdriver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td/div/div[2]/select/option[2]"));
             option_basic.Click();
+            Console.WriteLine("i am after clicking basic");
+            Thread.Sleep(1000);
             IWebElement updatebutton = webdriver.FindElement(By.XPath("/html/body/div[1]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td/div/span/input[1]"));
             updatebutton.Click();
 
