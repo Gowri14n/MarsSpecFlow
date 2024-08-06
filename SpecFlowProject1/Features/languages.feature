@@ -6,7 +6,7 @@ A short summary of the feature
 Scenario: Verify User is able to addlanguages
     Given user logins to Marsproject
 	When user clicks on Add new button under languages
-	And user enters language andproficiency level 'Tamil'
+	And user enters language andproficiency level 'tamil'
 	And user clicks on addbutton
 	Then verify language is added
 

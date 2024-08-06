@@ -30,8 +30,15 @@ namespace SpecFlowProject1.StepDefinitions
             actions.AddLanguages(webdriver);
             
         }
+        [When(@"user enters language andproficiency level '([^']*)'")]
+        public void WhenUserEntersLanguageAndproficiencyLevel(string code)
+        {
 
-       
+            actions.addLanguageandProficiency(webdriver, code);
+        }
+
+
+
         [When(@"user clicks on addbutton")]
         public void WhenUserClicksOnAddbutton()
         {
@@ -41,14 +48,16 @@ namespace SpecFlowProject1.StepDefinitions
         [Then(@"verify language is added")]
         public void ThenVerifyLanguageIsAdded()
         {
-            actions.Verifylanguageadded(webdriver);
-            webdriver.Quit();
-            
+            //actions.Verifylanguageadded(webdriver);
+            Thread.Sleep(2000);
+            actions.deleteLanguage(webdriver);
+
+
         }
         [When(@"user clicks on edit button")]
         public void WhenUserClicksOnEditButton()
-        {
-            Thread.Sleep(2000);
+        { 
+            Thread.Sleep(5000);
             actions.editLanguages(webdriver);
         }
 
@@ -57,8 +66,9 @@ namespace SpecFlowProject1.StepDefinitions
         [Then(@"verify language is edited")]
         public void ThenVerifyLanguageIsEdited()
         {
+            Thread.Sleep(3000);
             actions.verifyLanguageUpdated(webdriver);
-            Thread.Sleep(5000);
+            actions.deleteLanguage(webdriver);
             webdriver.Quit();
            
         }
@@ -66,7 +76,8 @@ namespace SpecFlowProject1.StepDefinitions
         public void WhenUserClicksOnDeleteButtonUnderLanguages()
             
         {
-            Thread.Sleep(2000);
+            Thread.Sleep(3000);
+            
             actions.deleteLanguage(webdriver);
         }
 
@@ -78,20 +89,8 @@ namespace SpecFlowProject1.StepDefinitions
         }
 
        
-        [When(@"user enters language andproficiency level '([^']*)'")]
-        public void WhenUserEntersLanguageAndproficiencyLevel(string code)
-        {
-
-                 actions.addLanguageandProficiency(webdriver,code);
-        }
-
-        [After] public void after()
-        {
-            actions.deleteLanguage(webdriver);
-            
-            
-        }
-    
+      
+       
 
     }
 }
