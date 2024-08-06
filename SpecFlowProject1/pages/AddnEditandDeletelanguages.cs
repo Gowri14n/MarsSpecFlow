@@ -28,6 +28,7 @@ namespace SpecFlowProject1.pages
             IWebElement proficiency_level = webdriver.FindElement(By.Name("level"));
             proficiency_level.Click();
             WaitUtilis.WaitToBeVisible(webdriver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/div/div[2]/select", 5);
+            //if( Level=="")
             IWebElement option_basic = webdriver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/div/div[2]/select/option[2]"));
             option_basic.Click();
             IWebElement add_language = webdriver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/div/div[3]/input[1]"));
@@ -69,6 +70,7 @@ namespace SpecFlowProject1.pages
         }
         public void editLanguages(IWebDriver webdriver)
         {
+            Thread.Sleep(3000);
             IWebElement editbutton = webdriver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[3]/span[1]/i"));
             editbutton.Click();
             IWebElement enter_language = webdriver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td/div/div[1]/input"));
@@ -78,7 +80,7 @@ namespace SpecFlowProject1.pages
             Console.WriteLine("i am before proficieny");
             IWebElement proficiency_level = webdriver.FindElement(By.Name("level"));
             proficiency_level.Click();
-            WaitUtilis.WaitToBeVisible(webdriver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td/div/div[2]/select", 10);
+            WaitUtilis.WaitToBeVisible(webdriver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td/div/div[2]/select",5);
             IWebElement option_basic = webdriver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td/div/div[2]/select/option[2]"));
             option_basic.Click();
             Console.WriteLine("i am after clicking basic");
